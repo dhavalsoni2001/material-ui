@@ -73,7 +73,6 @@ function getStyles(props, context, state) {
       borderRadius,
       transition: transitions.easeOut(),
       backgroundColor: backgroundColor,
-      overflow: 'hidden',
       // That's the default value for a button but not a link
       textAlign: 'center',
     },
@@ -195,6 +194,12 @@ class RaisedButton extends Component {
      * Override the inline-styles of the button's label element.
      */
     labelStyle: PropTypes.object,
+    /**
+     * Callback function fired when the button is touch-tapped.
+     *
+     * @param {object} event TouchTap event targeting the button.
+     */
+    onClick: PropTypes.func,
     /** @ignore */
     onMouseDown: PropTypes.func,
     /** @ignore */
@@ -207,12 +212,6 @@ class RaisedButton extends Component {
     onTouchEnd: PropTypes.func,
     /** @ignore */
     onTouchStart: PropTypes.func,
-    /**
-     * Callback function fired when the button is touch-tapped.
-     *
-     * @param {object} event TouchTap event targeting the button.
-     */
-    onTouchTap: PropTypes.func,
     /**
      * Override the inline style of the button overlay.
      */

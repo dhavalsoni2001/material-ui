@@ -1,5 +1,202 @@
 ## HEAD
 
+## 0.19.3
+###### _Oct 1, 2017_
+
+Big thanks to the 4 contributors who made this release possible.
+
+##### Component Fixes / Enhancements
+
+- [AutoComplete] Fix important regression (#8306) @oliviertassinari
+- [Button] Move zIndex stacking context from enhanced button to ripple group (#8281) @jgreubel
+- [Tooltip] Allow customize tooltip opacity (#8444) @jgreubel
+- [Switch] Do not bind the touch handlers if we are not showing ripple effects (#8463) @NLincoln
+
+##### Docs
+
+- [docs] Correct typo in ListItem docs (#8301) @apearson
+
+## 0.19.2
+###### _Sep 18, 2017_
+
+Big thanks to the 4 contributors who made this release possible.
+
+##### Component Fixes / Enhancements
+
+- [CardMedia] Guard against null children and overlays (#8055) @AlexMayants
+- [EnhancedButton] Prevent href being overwritten by undefined (#8103) @doverdb
+
+##### Docs
+
+- [docs] Add AlarmDJ.com in showcase (#8220) @ArnonEilat
+- [docs] Add carbon (#8242) @oliviertassinari
+- [docs] Add analytics (#8248) @oliviertassinari
+
+## 0.19.1
+###### _Sep 2, 2017_
+
+Big thanks to the 7 contributors who made this release possible.
+
+##### Component Fixes / Enhancements
+
+- [Popover] Fix PopOver animation origin when targetOrigin.horizontal=middle (#7930) @tsholmes
+- [Slider] Resolve slider value to respect max and min (#7863) @janmarsicek
+- [IconMenu] Stop preventing event default on open (#7933) @DoloMike
+- [AutoComplete] Fix bug where controlled component behaves uncontrolled (#7967) @djblue
+- [Tabs] Fix InkBar location for controlled component (#8010) @jgreubel
+
+##### Docs
+
+- [Autocomplete] Fix onNewRequest documentation (#7835) @baerrach
+
+##### Core
+
+N.A
+
+## 0.19.0
+###### _Aug 15, 2017_
+
+Big thanks to the 11 contributors who made this release possible.
+As always, we are focusing on bug fixes but this time, we introduce an exceptional breaking change.
+
+##### Breaking Changes
+
+- [core] Removed module's reliance on react-tap-event-plugin (#7624) @lostpebble
+
+The `react-tap-event-plugin` dependency was removed.
+This change is paving the way toward supporting the upcoming react@16 release a.k.a Fiber.
+The `react-tap-event-plugin` dependency was first introduced 3 years ago in order to remove
+the click delay on mobile devices.
+Mobiles devices' browsers have improved since then, it's no longer required.
+It's time to remove that dependency as we have done it a year ago on the `v1-beta` branch.
+You need to replace the `onTouchTap` property callbacks with `onClick`.
+
+```diff
+-<div onTouchTap={this.handleEvent} />
++<div onClick={this.handleEvent} />
+```
+
+Thanks @lostpebble for your hard work!
+
+##### Component Fixes / Enhancements
+
+- [EnhancedSwitch] Fix checked prop (#7499) @LeoIannacone
+- [Table] Row click on empty cell to not die in IE (#7520) @Brianzchen
+- [Popover] Fix unknown "scrollableContainer" prop warning (#7560) @husterk
+- [Popover] Fixed bug where Popover renders relative to screen (#7663) @lostpebble
+- [Menu] Broken touch scroll on nested menu items (#7557 @adam187
+- [DatePicker] Fix bug where 'isSelectedDateDisabled' was returning undefined (#7735) @lostpebble
+
+##### Docs
+
+- [docs] Update ROADMAP (#7543) @kgregory
+- [docs] Replace deprecated babel-plugin-material-ui with babel-plugin-direct-import (#7706) @umidbekkarimov
+- [docs] Fix comment typo (#7523) @ruffle1986
+- [examples] Remove browserify @oliviertassinari (0cb504cf830abd805c1a7699f828bf5b0a6c23be)
+- [docs] added showcase of 'HoopHubs.com' (#7677) @ngxiaoyi
+- [docs] Create CODE_OF_CONDUCT.md (#7704) @oliviertassinari
+
+##### Core
+
+- [core] Add react^16.0.0-beta.5 in peer dependencies @oliviertassinari (8032d51c3faf4ddc5bcf814c9458fbc227a083e2)
+
+## 0.18.7
+###### _Jul 23, 2017_
+
+Big thanks to the 11 contributors who made this release possible.
+As always, we are focusing on bug fixes.
+
+##### Component Fixes / Enhancements
+
+- [Table] Don't set height to tbody (#7484) @GAumala
+- [Popover] Scroll Container issue (#7472) @gorkemcnr
+- [ListItem] Fix triggers onTouchTap when disabled (#7486) @jonashartwig
+- [Chip] Fix warning when using onRequestDelete (#7407) @leMaik
+- [Datepicker] Option to select year first (#7367) @chrisjbrown
+- [List] Fix clicking "Toggle Nested Items" icon triggering left checkbox toggle (#7171) @hwo411
+
+##### Docs
+
+- [ROADMAP] Update the release plan for v1: fasteeer (#7428) @oliviertassinari
+- [docs] Update ROADMAP.md with v1-alpha branch (#7345) @whyvez
+- [docs] Update CONTRIBUTING.md with v1-alpha branch (#7371) @akshaynaik404
+- [docs] Fix typo in Avatar (#7478) @brianlheim
+
+##### Core
+
+N.A
+
+## 0.18.6
+###### _Jul 4, 2017_
+
+Big thanks to the 7 contributors who made this release possible.
+As always, we are focusing on bug fixes.
+
+##### Component Fixes / Enhancements
+
+- [Chip] Support overriding Delete Icon Style (#7320) @zentron
+- [AutoComplete] Fix issue with popover positioning on iOS (#7333) @mattp94
+- [ListItem] Apply paddingRight to automatic expand icon (#7313) @thehig
+- [DatePicker] Use the same background color as the TimePicker (#7295) @R4DIC4L
+- [TextField] Fix unfocused state when disabled (#7283) @xaviergonz
+
+##### Docs
+
+- [docs] Fix v1 promo styling (#7289) @KenLSM
+
+##### Core
+
+N.A
+
+## 0.18.5
+###### _Jun 28, 2017_
+
+##### Component Fixes / Enhancements
+
+- Fix regressions (#7262) @oliviertassinari
+- [TextField] Fix initial scroll (#7260) @brendanmh
+
+##### Docs
+
+- [docs] Promote the v1.0.0-alpha (#7273) @oliviertassinari
+
+##### Core
+
+- [tests] correct values expected by autoprefixer (#7267) @djbuckley
+
+## 0.18.4
+###### _Jun 25, 2017_
+
+Big thanks to the 17 contributors who made this release possible.
+This release keeps focusing on bug fixes.
+
+##### Component Fixes / Enhancements
+
+- [TextField] Replaced WebkitTextFillColor with WebkitOpacity (#7094) @midan888
+- [TextField] Fix for bottom border color reset (#7114) @xaviergonz
+- [Tab] Support SVG Icons color (#7091) @RejinR
+- [Tab] Fix color property handling (#7131) @oliviertassinari
+- [DatePicker] Fix direction in RTL (#7102) @azizghuloum
+- [ListItem] Exposing onTouchTap API in order to address Issue #6938 (#7105) @max-b
+- [Dialog] Styling inner content container (component Paper) (#7123) @akulov
+- [Switch] Fix focus style for RadioButton Checkbox Toggle (#7158) @myrubapa
+- [Popover] Only prevent default click interactions (#7167) @oliviertassinari
+- [Drawer] Remove event listeners on unmount (#7225) @liamcmitchell
+- [Table] state.allRowsSelected was not updated if props.allRowsSelected changed (#7224) @lgpasquale
+- [Slider] Prevent unnecessary value spread (#7191) @katzoo
+
+##### Docs
+
+- [Paper] Properties circle has typo misspelling (#7245) @lisabronwyn
+- [docs] Add material-ui-slider-label in the related projects section (a0ab405cc5d4a101735defbc68ec1b80659a8230) @tariqwest
+- [docs] Add Crypticker.io in showcase (#7205) @scastiel
+- [docs] Fix item 4 not showing as checked in Table controlled example (#7244) @bjornreppen
+- [docs] Humorista Showcase App No Longer Working (#7164) @Dcorkran
+
+##### Core
+
+N.A
+
 ## 0.18.3
 ###### _Jun 8, 2017_
 

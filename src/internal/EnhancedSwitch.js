@@ -111,6 +111,10 @@ class EnhancedSwitch extends Component {
     isKeyboardFocused: false,
   };
 
+  componentWillMount() {
+    this.componentWillReceiveProps(this.props);
+  }
+
   componentDidMount() {
     const inputNode = this.refs.checkbox;
     if ((!this.props.switched || inputNode.checked !== this.props.switched) &&
@@ -253,6 +257,7 @@ class EnhancedSwitch extends Component {
     const {
       name,
       value,
+      checked, // eslint-disable-line no-unused-vars
       iconStyle,
       inputStyle,
       inputType,
@@ -327,6 +332,14 @@ class EnhancedSwitch extends Component {
       showFocusRipple ? focusRipple : null,
     ];
 
+    const touchHandlers = showTouchRipple ? {
+      onMouseUp: this.handleMouseUp,
+      onMouseDown: this.handleMouseDown,
+      onMouseLeave: this.handleMouseLeave,
+      onTouchStart: this.handleTouchStart,
+      onTouchEnd: this.handleTouchEnd,
+    } : {};
+
     const inputElement = (
       <input
         {...other}
@@ -335,15 +348,12 @@ class EnhancedSwitch extends Component {
         style={prepareStyles(Object.assign(styles.input, inputStyle))}
         name={name}
         value={value}
+        checked={this.state.switched}
         disabled={disabled}
         onBlur={this.handleBlur}
         onFocus={this.handleFocus}
         onChange={this.handleChange}
-        onMouseUp={showTouchRipple && this.handleMouseUp}
-        onMouseDown={showTouchRipple && this.handleMouseDown}
-        onMouseLeave={showTouchRipple && this.handleMouseLeave}
-        onTouchStart={showTouchRipple && this.handleTouchStart}
-        onTouchEnd={showTouchRipple && this.handleTouchEnd}
+        {...touchHandlers}
       />
     );
 
